@@ -21,6 +21,7 @@
     "@adonisjs/lucid": "^10.0.0",
     "@adonisjs/redis": "^5.0.9",
     "@adonisjs/repl": "^1.0.0",
+    "tslib": "^2.2.0",
     "luxon": "^1.26.0",
     "mysql": "^2.18.1",
     "proxy-addr": "^2.0.6",
