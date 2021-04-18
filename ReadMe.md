@@ -1,5 +1,4 @@
 # ArtClick 🔗
-
 This is my personal URL Shortener.
 
 Hosted version: [**artclick.fr**](https://artclick.fr) *(Soon)*
