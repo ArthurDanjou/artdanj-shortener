@@ -7,6 +7,7 @@ specifiers:
   '@adonisjs/lucid': ^14.1.0
   '@adonisjs/redis': ^7.0.4
   '@adonisjs/repl': ^3.1.2
+  '@adonisjs/session': ^6.0.3
   adonis-preset-ts: ^2.1.0
   luxon: ^1.27.0
   mysql: ^2.18.1
@@ -21,11 +22,12 @@ specifiers:
   youch-terminal: ^1.1.1
 
 dependencies:
-  '@adonisjs/auth': 8.0.4_9cbd4ba22ee24b3c16146273a7ae27e1
+  '@adonisjs/auth': 8.0.4_09750efe7c6fdf4c447a0d263c8334e6
   '@adonisjs/core': 5.1.7
   '@adonisjs/lucid': 14.1.0_5088a397e44907434f24008a8ec322ea
   '@adonisjs/redis': 7.0.4_@adonisjs+core@5.1.7
   '@adonisjs/repl': 3.1.2_@adonisjs+core@5.1.7
+  '@adonisjs/session': 6.0.3_@adonisjs+core@5.1.7
   luxon: 1.27.0
   mysql: 2.18.1
   phc-argon2: 1.1.1
@@ -98,7 +100,7 @@ packages:
       - supports-color
     dev: true
 
-  /@adonisjs/auth/8.0.4_9cbd4ba22ee24b3c16146273a7ae27e1:
+  /@adonisjs/auth/8.0.4_09750efe7c6fdf4c447a0d263c8334e6:
     resolution: {integrity: sha512-NIxhO1Oj2wxS6BdFYCZnsbbd1PUdFLzwH5g9sEgk7hjkuxp7nRWyfev7B7pLJeT+r1/sMFoDgKhhy8sFvMD8zg==}
     peerDependencies:
       '@adonisjs/core': ^5.1.1
@@ -116,6 +118,7 @@ packages:
       '@adonisjs/core': 5.1.7
       '@adonisjs/lucid': 14.1.0_5088a397e44907434f24008a8ec322ea
       '@adonisjs/redis': 7.0.4_@adonisjs+core@5.1.7
+      '@adonisjs/session': 6.0.3_@adonisjs+core@5.1.7
       '@poppinss/hooks': 3.0.3
       '@poppinss/utils': 3.1.2
       luxon: 1.27.0
@@ -322,6 +325,16 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /@adonisjs/session/6.0.3_@adonisjs+core@5.1.7:
+    resolution: {integrity: sha512-cKHdjhX0B4Y9r8OVUZ84L9EL3Q4krRonjkpCAsq2b3eoZQ5locIo6D0kUWAKMMpPqR58qmWBbPO44SrjRMcnhg==}
+    peerDependencies:
+      '@adonisjs/core': ^5.1.0
+    dependencies:
+      '@adonisjs/core': 5.1.7
+      '@poppinss/utils': 3.1.2
+      fs-extra: 10.0.0
+    dev: false
 
   /@adonisjs/sink/5.1.3_@adonisjs+application@5.1.2:
     resolution: {integrity: sha512-Ngjijh32fnE0wXSz8NDnDFN2xlHDMGmtmrbVWsLGs/DipBmgwfyNnAvsYpVlG379e/IbFz+Wy4MxNaAXtOKj3Q==}

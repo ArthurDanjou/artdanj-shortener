@@ -20,6 +20,7 @@ export default Env.rules({
 	APP_KEY: Env.schema.string(),
 	APP_NAME: Env.schema.string(),
   APP_VERSION: Env.schema.string(),
+  APP_URL: Env.schema.string(),
 	NODE_ENV: Env.schema.enum(['development', 'production', 'testing'] as const),
 
   REDIS_CONNECTION: Env.schema.enum(['local'] as const),
@@ -32,4 +33,6 @@ export default Env.rules({
   MYSQL_USER: Env.schema.string(),
   MYSQL_PASSWORD: Env.schema.string.optional(),
   MYSQL_DB_NAME: Env.schema.string(),
+
+  SESSION_DRIVER: Env.schema.string()
 })

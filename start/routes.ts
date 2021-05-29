@@ -1,13 +1,14 @@
 import Route from '@ioc:Adonis/Core/Route'
 import HealthCheck from "@ioc:Adonis/Core/HealthCheck";
 import {HttpContextContract} from "@ioc:Adonis/Core/HttpContext";
+import Env from "@ioc:Adonis/Core/Env";
 
-const BASE_URL = "https://go.arthurdanjou.fr"
+const BASE_URL = Env.get('APP_URL')
 
 Route.get('/', async ({response}: HttpContextContract) => {
   return response.status(200).send({
     domain: BASE_URL,
-    version: "1.0",
+    version: Env.get('APP_VERSION'),
     source: `${BASE_URL}/source`,
     healthCheck: `${BASE_URL}/health`,
     links: `${BASE_URL}/links`
