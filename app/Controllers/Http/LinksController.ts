@@ -1,7 +1,7 @@
 import {HttpContextContract} from '@ioc:Adonis/Core/HttpContext'
 import StoreValidator from "App/Validators/StoreValidator";
-import Link from "App/Models/Link";
 import UpdateValidator from "App/Validators/UpdateValidator";
+import Link from "App/Models/Link";
 
 export default class LinksController {
 
@@ -39,7 +39,8 @@ export default class LinksController {
     }
   }
 
-  public async createLink ({request}: HttpContextContract) {
+  public async createLink ({request, auth}: HttpContextContract) {
+    await auth.authenticate()
     const link = await Link.create(await request.validate(StoreValidator))
     return {
       message: `Link successfully created : ${link.code} + ${link.target}`
