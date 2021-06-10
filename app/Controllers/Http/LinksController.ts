@@ -49,9 +49,12 @@ export default class LinksController {
 
   public async updateLink ({request, auth}: HttpContextContract) {
     await auth.authenticate()
-    const link = await Link.findByOrFail('code', request.input('link'))
+    const link = await Link.findByOrFail('code', request.input('code'))
     const data = await request.validate(UpdateValidator)
-    await link.merge(data).save()
+    await link.merge({
+      target: data.target,
+      visitCount: 0
+    }).save()
     return link
   }
 
