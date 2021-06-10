@@ -31,7 +31,7 @@ Route
     Route.post('/login', 'UsersController.login')
     Route.post('/logout', 'UsersController.logout')
     Route.post('/token', 'UsersController.createInfiniteToken')
-    Route.post('/user', 'UsersController.me')
+    Route.get('/user', 'UsersController.me')
   })
   .prefix('auth')
 
