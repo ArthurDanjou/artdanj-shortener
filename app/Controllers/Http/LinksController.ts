@@ -10,9 +10,9 @@ export default class LinksController {
     const link = await Link.findByOrFail('code', code)
 
     if (link.code === code) {
-      let visitCount = link.visitCount
+      let visitCount = link.visitCount + 1
       await link.merge({
-        visitCount: visitCount++
+        visitCount: visitCount
       }).save()
       return response.redirect(link.target)
     }
@@ -20,7 +20,7 @@ export default class LinksController {
   }
 
   public async getAllLinks ({response}: HttpContextContract) {
-    const links = await Link.all()
+    const links = await Link.query().orderBy('id', 'asc')
     return response.ok(links);
   }
 
