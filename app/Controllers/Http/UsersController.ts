@@ -24,4 +24,9 @@ export default class UsersController {
     return { message: 'Vous avez été déconnecté' }
   }
 
+  public async me ({auth}: HttpContextContract) {
+    await auth.authenticate()
+    return auth.user
+  }
+
 }
