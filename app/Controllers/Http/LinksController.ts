@@ -47,14 +47,16 @@ export default class LinksController {
     }
   }
 
-  public async updateLink ({request}: HttpContextContract) {
+  public async updateLink ({request, auth}: HttpContextContract) {
+    await auth.authenticate()
     const link = await Link.findByOrFail('code', request.input('link'))
     const data = await request.validate(UpdateValidator)
     await link.merge(data).save()
     return link
   }
 
-  public async deleteLink ({request}: HttpContextContract) {
+  public async deleteLink ({request, auth}: HttpContextContract) {
+    await auth.authenticate()
     const code = request.input('code')
     const link = await Link.findByOrFail('code', code)
     await link.delete()
