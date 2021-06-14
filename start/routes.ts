@@ -16,7 +16,7 @@ Route.get('/', async ({response}: HttpContextContract) => {
 })
 
 Route.get('/source', async ({response}: HttpContextContract) => {
-  return response.redirect('https://github.com/arthurdanjou/artclick')
+  return response.redirect('https://github.com/linkyjs/core')
 })
 
 Route.get('health', async ({response}: HttpContextContract) => {
