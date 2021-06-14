@@ -16,7 +16,6 @@
   "scripts": {
     "build": "node ace build --production",
     "start": "node server.js",
-    "dev": "node ace serve --watch",
     "seed": "node ace db:seed",
     "mig": "node ace migration:run"
   },
