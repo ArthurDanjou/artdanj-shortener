@@ -5,7 +5,6 @@
  * file.
  */
 
-import Env from '@ioc:Adonis/Core/Env'
 import Application from '@ioc:Adonis/Core/Application'
 import { SessionConfig } from '@ioc:Adonis/Addons/Session'
 
@@ -36,7 +35,7 @@ const sessionConfig: SessionConfig = {
   | Note: Switching drivers will make existing sessions invalid.
   |
   */
-  driver: Env.get('SESSION_DRIVER'),
+  driver: 'redis',
 
   /*
   |--------------------------------------------------------------------------

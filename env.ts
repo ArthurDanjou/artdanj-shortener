@@ -18,12 +18,8 @@ export default Env.rules({
 	HOST: Env.schema.string({ format: 'host' }),
 	PORT: Env.schema.number(),
 	APP_KEY: Env.schema.string(),
-	APP_NAME: Env.schema.string(),
-  APP_VERSION: Env.schema.string(),
   APP_URL: Env.schema.string(),
-	NODE_ENV: Env.schema.enum(['development', 'production', 'testing'] as const),
 
-  REDIS_CONNECTION: Env.schema.enum(['local'] as const),
   REDIS_HOST: Env.schema.string(),
   REDIS_PORT: Env.schema.number(),
   REDIS_PASSWORD: Env.schema.string.optional(),
@@ -33,6 +29,4 @@ export default Env.rules({
   MYSQL_USER: Env.schema.string(),
   MYSQL_PASSWORD: Env.schema.string.optional(),
   MYSQL_DB_NAME: Env.schema.string(),
-
-  SESSION_DRIVER: Env.schema.string()
 })
