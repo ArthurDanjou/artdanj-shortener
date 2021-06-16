@@ -1,6 +1,6 @@
 {
   "name": "@linkyjs/core",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "URL Shortener for Developers 💻",
   "main": "start/kernel.ts",
   "repository": {
@@ -17,7 +17,8 @@
     "build": "node ace build --production",
     "start": "node server.js",
     "seed": "node ace db:seed",
-    "mig": "node ace migration:run"
+    "mig": "node ace migration:run",
+    "generate": "node ace generate:key"
   },
   "devDependencies": {
     "@adonisjs/assembler": "^5.3.1",
