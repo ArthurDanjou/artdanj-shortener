@@ -20,6 +20,9 @@ export default Env.rules({
 	APP_KEY: Env.schema.string(),
   APP_URL: Env.schema.string(),
 
+  ADMIN_USER: Env.schema.string(),
+  ADMIN_PASSWORD: Env.schema.string(),
+
   REDIS_HOST: Env.schema.string(),
   REDIS_PORT: Env.schema.number(),
   REDIS_PASSWORD: Env.schema.string.optional(),
