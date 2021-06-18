@@ -13,7 +13,7 @@ export default class AppProvider {
   }
 
   public async boot () {
-    await User.firstOrNew({
+    await User.firstOrCreate({
       email: Env.get('ADMIN_USER', 'admin@linkyjs.dev')
     }, {
       email: Env.get('ADMIN_USER', 'admin@linkyjs.dev'),
