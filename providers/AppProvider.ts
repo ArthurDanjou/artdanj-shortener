@@ -9,10 +9,13 @@ export default class AppProvider {
   }
 
   public register () {
-    // Register your own bindings
   }
 
   public async boot () {
+
+  }
+
+  public async ready () {
     await User.firstOrCreate({
       email: Env.get('ADMIN_USER', 'admin@linkyjs.dev')
     }, {
@@ -21,11 +24,6 @@ export default class AppProvider {
     })
   }
 
-  public async ready () {
-    // App is ready
-  }
-
   public async shutdown () {
-    // Cleanup, since app is going down
   }
 }
