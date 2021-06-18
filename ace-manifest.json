@@ -1,5 +1,17 @@
 {
   "commands": {
+    "user:create": {
+      "settings": {
+        "loadApp": true,
+        "stayAlive": false
+      },
+      "commandPath": "./commands/UserCreate",
+      "commandName": "user:create",
+      "description": "Create the default user",
+      "args": [],
+      "aliases": [],
+      "flags": []
+    },
     "dump:rcfile": {
       "settings": {},
       "commandPath": "@adonisjs/core/build/commands/DumpRc",
