@@ -1,13 +1,13 @@
 {
   "name": "@linkyjs/core",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "URL Shortener for Developers 💻",
   "main": "start/kernel.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/linkyjs/core.git"
   },
-  "author": "",
+  "author": "Arthur Danjou <arthurdanjou@outlook.fr> (https://arthurdanjou.fr)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/linkyjs/core/issues"
