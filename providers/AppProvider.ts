@@ -23,7 +23,20 @@ export default class AppProvider {
       password: Env.get('ADMIN_PASSWORD', 'password')
     })
     if (user) {
-      Logger.info('User successfully created')
+      Logger.info('Admin User successfully created !')
+    }
+
+    const { default: Migrator } = await import('@ioc:Adonis/Lucid/Migrator')
+    const { default: Database } = await import('@ioc:Adonis/Lucid/Database')
+    const { default: Application } = await import('@ioc:Adonis/Core/Application')
+    const migrator = new Migrator(Database, Application, {
+      direction: 'up',
+    })
+
+    await migrator.run()
+
+    if (migrator.status === 'completed') {
+      Logger.info('Migrations successfully passed !')
     }
   }
 
