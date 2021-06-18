@@ -4,12 +4,12 @@ import {HttpContextContract} from "@ioc:Adonis/Core/HttpContext";
 import Env from "@ioc:Adonis/Core/Env";
 
 const BASE_URL = Env.get('APP_URL')
-const VERSION = require('../package.json')
+const { version } = require('../package.json')
 
 Route.get('/', async ({response}: HttpContextContract) => {
   return response.status(200).send({
     domain: BASE_URL,
-    version: VERSION,
+    version: version,
     source: `${BASE_URL}/source`,
     healthCheck: `${BASE_URL}/health`,
     links: `${BASE_URL}/links`

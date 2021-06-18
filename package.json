@@ -21,26 +21,26 @@
     "generate": "node ace generate:key"
   },
   "devDependencies": {
-    "@adonisjs/assembler": "^5.3.1",
+    "@adonisjs/assembler": "^5.3.2",
     "adonis-preset-ts": "^2.1.0",
-    "pino-pretty": "^4.7.1",
-    "typescript": "~4.3.2",
+    "pino-pretty": "^5.0.2",
+    "typescript": "^4.3.4",
     "youch": "^2.2.2",
     "youch-terminal": "^1.1.1"
   },
   "dependencies": {
-    "@adonisjs/auth": "^8.0.5",
-    "@adonisjs/core": "~5.1.8",
-    "@adonisjs/lucid": "^14.2.0",
-    "@adonisjs/redis": "^7.0.5",
-    "@adonisjs/repl": "^3.1.3",
-    "@adonisjs/session": "^6.0.5",
+    "@adonisjs/auth": "^8.0.6",
+    "@adonisjs/core": "^5.1.8",
+    "@adonisjs/lucid": "^15.0.1",
+    "@adonisjs/redis": "^7.0.6",
+    "@adonisjs/repl": "^3.1.4",
+    "@adonisjs/session": "^6.0.6",
     "luxon": "^1.27.0",
     "mysql": "^2.18.1",
     "phc-argon2": "^1.1.1",
     "proxy-addr": "^2.0.7",
     "reflect-metadata": "^0.1.13",
     "source-map-support": "^0.5.19",
-    "tslib": "^2.2.0"
+    "tslib": "^2.3.0"
   }
 }
