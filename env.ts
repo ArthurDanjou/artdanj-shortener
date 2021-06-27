@@ -19,6 +19,7 @@ export default Env.rules({
 	PORT: Env.schema.number(),
 	APP_KEY: Env.schema.string(),
   APP_URL: Env.schema.string(),
+  NODE_ENV: Env.schema.string(),
 
   ADMIN_USER: Env.schema.string(),
   ADMIN_PASSWORD: Env.schema.string(),
