@@ -1,6 +1,6 @@
 {
-  "no_exists": "Le code '{code}' n'existe pas!",
-  "created": "Le lien '{link}' avec pour direction '{target}' a bien été créé!",
-  "deleted": "Le lien '{link}' a bien été supprimé!",
+  "no_exists": "Le code [{ code }] n'existe pas !",
+  "created": "Le lien [{ link }] redirigeant vers [{ target }] a bien été créé !",
+  "deleted": "Le lien [{ link }] a bien été supprimé !",
   "logout": "Vous avez été déconnecté !"
 }
