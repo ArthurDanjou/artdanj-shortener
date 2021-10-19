@@ -1,0 +1,6 @@
+{
+  "no_exists": "The code '{code}' does not exist!",
+  "created": "The link '{link}' with target '{target}' was successfully created!",
+  "deleted": "The link '{link}' was successfully deleted!",
+  "logout": "You have been disconnected!"
+}

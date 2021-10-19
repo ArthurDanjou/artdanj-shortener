@@ -5,7 +5,7 @@ import Link from "App/Models/Link";
 
 export default class LinksController {
 
-  public async getLink ({params, response}: HttpContextContract) {
+  public async getLink ({params, response, i18n}: HttpContextContract) {
     const code = params.id
     const link = await Link.findByOrFail('code', code)
 
@@ -14,40 +14,44 @@ export default class LinksController {
       await link.merge({
         visitCount: visitCount
       }).save()
-      return response.redirect(link.target)
+      return response.status(200).redirect(link.target)
     }
-    return response.badRequest(`Code does not exist ! (/${code})`)
+    return response.status(404).send({
+      message: i18n.formatMessage('messages.no_exists', { code: code })
+    })
   }
 
   public async getAllLinks ({response}: HttpContextContract) {
     const links = await Link.query().orderBy('id', 'asc')
-    return response.ok(links);
+    return response.status(200).send({
+      links
+    })
   }
 
-  public async getVisitCount ({params}: HttpContextContract) {
+  public async getVisitCount ({params, response, i18n}: HttpContextContract) {
     const code = params.id
     const link = await Link.findByOrFail('code', code)
 
     //Check if code exists
     if (link.code === code) {
-      return {
+      return response.status(200).send({
         count: link.visitCount
-      }
+      })
     }
-    return {
-      message: `Code does not exist ! (${code}`
-    }
+    return response.status(404).send({
+      message: i18n.formatMessage('messages.no_exists', { code: code })
+    })
   }
 
-  public async createLink ({request, auth}: HttpContextContract) {
+  public async createLink ({response, request, auth, i18n}: HttpContextContract) {
     await auth.authenticate()
     const link = await Link.create(await request.validate(StoreValidator))
-    return {
-      message: `Link successfully created : ${link.code} + ${link.target}`
-    }
+    return response.status(200).send({
+      message: i18n.formatMessage('messages.created', { link: link.code, target: link.target })
+    })
   }
 
-  public async updateLink ({request, auth}: HttpContextContract) {
+  public async updateLink ({response, request, auth}: HttpContextContract) {
     await auth.authenticate()
     const link = await Link.findByOrFail('code', request.input('code'))
     const data = await request.validate(UpdateValidator)
@@ -55,14 +59,19 @@ export default class LinksController {
       target: data.target,
       visitCount: 0
     }).save()
-    return link
+    return response.status(200).send({
+      link
+    })
   }
 
-  public async deleteLink ({request, auth}: HttpContextContract) {
+  public async deleteLink ({i18n, response, request, auth}: HttpContextContract) {
     await auth.authenticate()
     const code = request.input('code')
     const link = await Link.findByOrFail('code', code)
     await link.delete()
+    return response.status(200).send({
+      message: i18n.formatMessage('messages.deleted', { link: link.code })
+    })
   }
 
 }
