@@ -27,6 +27,7 @@ export default Env.rules({
   REDIS_HOST: Env.schema.string(),
   REDIS_PORT: Env.schema.number(),
   REDIS_PASSWORD: Env.schema.string.optional(),
+  REDIS_DB: Env.schema.string.optional(),
 
   MYSQL_HOST: Env.schema.string(),
   MYSQL_PORT: Env.schema.number(),
