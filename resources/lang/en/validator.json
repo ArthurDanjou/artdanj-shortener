@@ -1,0 +1,10 @@
+{
+  "shared": {
+    "required": "Value for the field is required",
+    "email.unique": "Email is already in use",
+    "email.email": "Email must be valid",
+    "password.confirmation": "Passwords are not the same",
+    "code.unique": "Code already exists",
+    "code.maxLength": "Code is too long (max 10 characters)"
+  }
+}
