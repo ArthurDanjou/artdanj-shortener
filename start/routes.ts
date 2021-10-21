@@ -6,7 +6,7 @@ import Env from "@ioc:Adonis/Core/Env";
 const BASE_URL = Env.get('APP_URL')
 const { version } = require('../package.json')
 
-Route.get('/', async ({response}: HttpContextContract) => {
+Route.get('/', async ({ response }: HttpContextContract) => {
   return response.status(200).send({
     domain: BASE_URL,
     version: version,
@@ -16,11 +16,11 @@ Route.get('/', async ({response}: HttpContextContract) => {
   })
 })
 
-Route.get('/source', async ({response}: HttpContextContract) => {
+Route.get('/source', async ({ response }: HttpContextContract) => {
   return response.redirect('https://github.com/linkyjs/core')
 })
 
-Route.get('health', async ({response}: HttpContextContract) => {
+Route.get('health', async ({ response }: HttpContextContract) => {
   const report = await HealthCheck.getReport()
   const isLive = await HealthCheck.isLive()
   const isReady = HealthCheck.isReady()
@@ -29,22 +29,28 @@ Route.get('health', async ({response}: HttpContextContract) => {
 
 Route
   .group(() => {
-    Route.post('/login', 'UsersController.login')
-    Route.post('/logout', 'UsersController.logout')
-    Route.post('/token', 'UsersController.createInfiniteToken')
-    Route.get('/user', 'UsersController.me')
+    Route.post('/login', 'AuthController.login')
+    Route.post('/logout', 'AuthController.logout')
+    Route.post('/token', 'AuthController.token')
+    Route.get('/user', 'AuthController.me')
   })
   .prefix('auth')
 
 Route
   .group(() => {
-    Route.post('/create', 'LinksController.createLink')
-    Route.post('/update', 'LinksController.updateLink')
-    Route.post('/delete', 'LinksController.deleteLink')
+    Route.post('/create', 'LinksController.store')
+    Route.post('/update', 'LinksController.update')
+    Route.post('/delete', 'LinksController.delete')
   })
   .prefix('options')
   .middleware('auth')
 
-Route.get('/links', 'LinksController.getAllLinks') // --> Home
-Route.get('/:id', 'LinksController.getLink') // --> Go to target's code
-Route.get('/:id/count', 'LinksController.getVisitCount') // --> Get Visit count's code
+Route
+  .group(() => {
+    Route.resource('users', 'UsersController').except(['edit', 'create'])
+  })
+  .middleware('auth')
+
+Route.get('/links', 'LinksController.index') // --> Home
+Route.get('/:id', 'LinksController.visit') // --> Go to target's code
+Route.get('/:id/count', 'LinksController.getCount') // --> Get Visit count's code
