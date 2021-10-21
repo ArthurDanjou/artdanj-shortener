@@ -5,10 +5,16 @@ export default class Links extends BaseSchema {
 
   public async up () {
     this.schema.createTable(this.tableName, (table) => {
-      table.increments('id')
+      table.increments('id').primary()
       table.string('code').notNullable()
       table.string('target').notNullable()
-      table.integer('visit_count').defaultTo(0)
+      table.string('type').defaultTo('PERMANENT')
+      table.timestamp('expire').defaultTo(this.now())
+      table
+        .integer('author_id')
+        .unsigned()
+        .references('users.id')
+        .onDelete('CASCADE')
       table.timestamps(true)
     })
   }
