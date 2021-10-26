@@ -35,7 +35,7 @@ export default class UsersController {
     })
   }
 
-  public async destroy ({ response, params, auth }: HttpContextContract) {
+  public async destroy ({ response, params, auth, i18n }: HttpContextContract) {
     const user = await User.findOrFail(params.id)
     const admin = await User.findBy('email', Env.get('ADMIN_USER'))
 
@@ -45,7 +45,9 @@ export default class UsersController {
 
     await user.delete()
     return response.status(200).send({
-      message: 'User successfully deleted!'
+      message: i18n.formatMessage('messages.user', {
+        user: user.email
+      })
     })
   }
 
