@@ -1,5 +1,144 @@
 {
   "commands": {
+    "link:create": {
+      "settings": {
+        "loadApp": true,
+        "stayAlive": false
+      },
+      "commandPath": "./commands/Create",
+      "commandName": "link:create",
+      "description": "Quickly and easily create a new link",
+      "args": [
+        {
+          "type": "string",
+          "propertyName": "code",
+          "name": "code",
+          "required": true,
+          "description": "Code of the new link"
+        },
+        {
+          "type": "string",
+          "propertyName": "target",
+          "name": "target",
+          "required": true,
+          "description": "Target of the new link"
+        }
+      ],
+      "aliases": [
+        "new"
+      ],
+      "flags": [
+        {
+          "name": "date",
+          "propertyName": "date",
+          "type": "string",
+          "alias": "d",
+          "description": "Date of the new link (Format: yyyy-MM-dd/HH:mm:ss)"
+        }
+      ]
+    },
+    "link:delete": {
+      "settings": {
+        "loadApp": true,
+        "stayAlive": false
+      },
+      "commandPath": "./commands/Delete",
+      "commandName": "link:delete",
+      "description": "Delete an existing link",
+      "args": [
+        {
+          "type": "string",
+          "propertyName": "code",
+          "name": "code",
+          "required": true,
+          "description": "Code of the new link"
+        }
+      ],
+      "aliases": [
+        "del",
+        "remove",
+        "rem"
+      ],
+      "flags": []
+    },
+    "link:list": {
+      "settings": {
+        "loadApp": true,
+        "stayAlive": false
+      },
+      "commandPath": "./commands/List",
+      "commandName": "link:list",
+      "description": "List all your links",
+      "args": [],
+      "aliases": [
+        "link:ls"
+      ],
+      "flags": []
+    },
+    "link:logs": {
+      "settings": {
+        "loadApp": true,
+        "stayAlive": false
+      },
+      "commandPath": "./commands/Logs",
+      "commandName": "link:logs",
+      "description": "Retrieves the number of visits of a link",
+      "args": [
+        {
+          "type": "string",
+          "propertyName": "code",
+          "name": "code",
+          "required": true,
+          "description": "Code of the new link"
+        }
+      ],
+      "aliases": [
+        "link:stats",
+        "link:show"
+      ],
+      "flags": []
+    },
+    "link:update": {
+      "settings": {
+        "loadApp": true,
+        "stayAlive": false
+      },
+      "commandPath": "./commands/Update",
+      "commandName": "link:update",
+      "description": "Update an existing link",
+      "args": [
+        {
+          "type": "string",
+          "propertyName": "code",
+          "name": "code",
+          "required": true,
+          "description": "Code of the new link"
+        }
+      ],
+      "aliases": [
+        "set"
+      ],
+      "flags": [
+        {
+          "name": "new-code",
+          "propertyName": "new_code",
+          "type": "string",
+          "description": "The new code of the link"
+        },
+        {
+          "name": "target",
+          "propertyName": "target",
+          "type": "string",
+          "description": "The new target of the link"
+        },
+        {
+          "name": "expire",
+          "propertyName": "expire",
+          "type": "string",
+          "description": "The new expiration date of the link"
+        }
+      ]
+    },
     "dump:rcfile": {
       "settings": {},
       "commandPath": "@adonisjs/core/build/commands/DumpRc",
@@ -263,5 +402,14 @@
       ]
     }
   },
-  "aliases": {}
+  "aliases": {
+    "new": "link:create",
+    "del": "link:delete",
+    "remove": "link:delete",
+    "rem": "link:delete",
+    "link:ls": "link:list",
+    "link:stats": "link:logs",
+    "link:show": "link:logs",
+    "set": "link:update"
+  }
 }
