@@ -2,5 +2,6 @@
   "no_exists": "The code [{ code }° does not exist!",
   "created": "The link [{ link }] redirecting to [{ target }] was successfully created!",
   "deleted": "The link [{ link }] was successfully deleted!",
-  "logout": "You have been disconnected!"
+  "logout": "You have been disconnected!",
+  "user": "The user [{ user }] was successfully deleted"
 }
