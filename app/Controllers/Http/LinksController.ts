@@ -22,6 +22,7 @@ export default class LinksController {
       await link.load('author', (query) => {
         query.select('email')
       })
+      await link.load('clicks')
       return response.status(200).send({
         link
       })
@@ -60,6 +61,7 @@ export default class LinksController {
       .preload('author', (query) => {
         query.select('email')
       })
+      .preload('clicks')
     return response.status(200).send({
       links
     })

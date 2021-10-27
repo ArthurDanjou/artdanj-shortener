@@ -44,6 +44,6 @@ export default class Update extends BaseCommand {
       link.expire = DateTime.fromJSDate(new Date(this.expire || new Date())) ?? null
     }
     await link.save()
-    this.logger.info('The user was successfully updated!')
+    this.logger.info('The link was successfully updated!')
   }
 }
