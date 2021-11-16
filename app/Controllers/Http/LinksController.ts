@@ -5,6 +5,7 @@ import Click from "App/Models/Click";
 import {DateTime} from "luxon";
 import LinkUpdateValidator from "App/Validators/links/LinkUpdateValidator";
 import LinkStoreValidator from "App/Validators/links/LinkStoreValidator";
+import Logger from "@ioc:Adonis/Core/Logger";
 
 export default class LinksController {
 
@@ -41,7 +42,7 @@ export default class LinksController {
 
       const exist = await Redis.get(`${link.code}:${ip}:tracked`)
       if (!exist) {
-        console.log(request)
+        Logger.info('' + request)
         const getCountry = request.header('CF-IPCountry', '')
         await Redis.set(`${link.code}:${ip}:tracked`, 'true', 'ex', '3600')
         const click = await Click.create({
