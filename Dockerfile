@@ -1,9 +1,9 @@
-FROM node:15.8.0-alpine3.10
+FROM node:16-alpine3.11
 
-RUN mkdir -p /usr/src/linkyjs
-WORKDIR /usr/src/linkyjs
+RUN mkdir -p /usr/src/shortener
+WORKDIR /usr/src/shortener
 
-COPY . /usr/src/linkyjs
+COPY . /usr/src/shortener
 
 RUN apk update && \
     apk add git
@@ -14,7 +14,7 @@ RUN yarn build
 
 RUN cp .env build
 
-WORKDIR /usr/src/linkyjs/build
+WORKDIR /usr/src/shortener/build
 
 RUN yarn install --production
 
