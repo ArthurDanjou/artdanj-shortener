@@ -11,27 +11,27 @@
     "generate": "node ace generate:key"
   },
   "devDependencies": {
-    "@adonisjs/assembler": "^5.3.2",
+    "@adonisjs/assembler": "^5.8.0",
     "adonis-preset-ts": "^2.1.0",
-    "pino-pretty": "^7.1.0",
-    "typescript": "^4.4.4",
-    "youch": "^2.2.2",
-    "youch-terminal": "^1.1.1"
+    "pino-pretty": "^8.1.0",
+    "typescript": "^4.7.4",
+    "youch": "^3.2.0",
+    "youch-terminal": "^2.1.4"
   },
   "dependencies": {
-    "@adonisjs/auth": "^8.0.10",
-    "@adonisjs/core": "^5.4.0",
-    "@adonisjs/i18n": "^1.5.2",
-    "@adonisjs/lucid": "^16.2.1",
-    "@adonisjs/redis": "^7.0.9",
-    "@adonisjs/repl": "^3.1.7",
-    "@adonisjs/session": "^6.1.2",
-    "luxon": "^2.0.2",
+    "@adonisjs/auth": "^8.2.1",
+    "@adonisjs/core": "^5.8.4",
+    "@adonisjs/i18n": "^1.5.6",
+    "@adonisjs/lucid": "^18.1.0",
+    "@adonisjs/redis": "^7.3.0",
+    "@adonisjs/repl": "^3.1.11",
+    "@adonisjs/session": "^6.4.0",
+    "luxon": "^2.4.0",
     "mysql": "^2.18.1",
-    "phc-argon2": "^1.1.2",
+    "phc-argon2": "^1.1.3",
     "proxy-addr": "^2.0.7",
     "reflect-metadata": "^0.1.13",
-    "source-map-support": "^0.5.20",
-    "tslib": "^2.3.1"
+    "source-map-support": "^0.5.21",
+    "tslib": "^2.4.0"
   }
 }
