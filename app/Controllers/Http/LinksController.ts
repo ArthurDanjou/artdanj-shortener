@@ -42,7 +42,7 @@ export default class LinksController {
       const exist = await Redis.get(`${link.code}:${ip}:tracked`)
       if (!exist) {
         const getCountry = request.header('CF-IPCountry', '')
-        await Redis.set(`${link.code}:${ip}:tracked`, 'true', 'ex', '3600')
+        await Redis.set(`${link.code}:${ip}:tracked`, 'true', 'EX', '3600')
         const click = await Click.create({
           date: DateTime.now(),
           ip,
