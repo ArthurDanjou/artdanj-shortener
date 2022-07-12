@@ -55,14 +55,24 @@ export default class LinksController {
     }
   }
 
-  public async index ({ response }: HttpContextContract) {
-    const links = await Link
-      .query()
-      .orderBy('id', 'asc')
-      .preload('author', (query) => {
-        query.select('email')
-      })
-      .preload('clicks')
+  public async index ({ response, auth }: HttpContextContract) {
+    let links: Link[]
+    if (auth.isAuthenticated && auth.isLoggedIn) {
+      links = await Link
+        .query()
+        .orderBy('id', 'asc')
+        .preload('author', (query) => {
+          query.select('email')
+        })
+        .preload('clicks')
+    } else {
+      links = await Link
+        .query()
+        .orderBy('id', 'asc')
+        .preload('author', (query) => {
+          query.select('email')
+        })
+    }
     return response.status(200).send({
       links
     })
